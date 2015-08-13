@@ -15,5 +15,8 @@
 					.col-md-6
 						- if current_user == @pin.user
 							.btn-group.pull-right
+								= link_to like_pin_path, method: :put, class: 'btn btn-default' do
+									%span.glyphicon.glyphicon-heart
+										= @pin.get_upvotes.size
 								= link_to "Edit", edit_pin_path, class: 'btn btn-default'
 								= link_to "Delete", pin_path, method: :delete, class: 'btn btn-default', data: {confirm: 'Are you sure?'}

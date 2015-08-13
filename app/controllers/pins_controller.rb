@@ -46,6 +46,11 @@ class PinsController < ApplicationController
 		redirect_to root_path, notice: 'Pin was successfully deleted!'
 	end
 
+	def upvote
+		@pin.like_by current_user
+		redirect_to :back, notice: 'You like this pin!'
+	end
+
 
 	private
 
