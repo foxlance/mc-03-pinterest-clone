@@ -38,6 +38,14 @@ class PinsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@pin = current_user.pins.find(params[:id])
+
+		@pin.destroy
+		
+		redirect_to root_path, notice: 'Pin was successfully deleted!'
+	end
+
 
 	private
 
