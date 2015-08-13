@@ -8,7 +8,14 @@
 			%ul
 				- @pin.errors.full_messages.each do |msg|
 					%li= msg
-
+	
+	- if !current_page?(new_pin_path)
+		%strong Current Image
+		%br
+		= image_tag(@pin.image.url(:medium))
+		%br
+		%br
+	
 	= f.input :image
 	= f.input :title
 	= f.input :description
