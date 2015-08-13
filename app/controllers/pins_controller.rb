@@ -24,6 +24,20 @@ class PinsController < ApplicationController
 		end	
 	end
 
+	def edit
+		
+	end
+
+	def update
+		@pin = current_user.pins.find(params[:id])
+
+		if @pin.update(pin_params)
+			redirect_to pin_path, notice: 'Pin was successfully updated!'
+		else
+			render 'edit'
+		end
+	end
+
 
 	private
 
